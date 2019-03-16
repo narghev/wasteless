@@ -21,7 +21,8 @@ class MapViewDirections extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if ((nextProps.origin != this.props.origin) || (nextProps.destination != this.props.destination)) {
+        if ((nextProps.origin != this.props.origin) || (nextProps.destination != this.props.destination) 
+        || (nextProps.waypoints !== this.props.waypoints)) {
 			this.resetState(this.fetchAndRenderRoute);
 		}
 	}
@@ -58,7 +59,8 @@ class MapViewDirections extends Component {
 			destination,
 			apikey,
 			onReady,
-			onError,
+            onError,
+            waypoints,
 		} = this.props;
 
 		if (origin.latitude && origin.longitude) {
@@ -69,7 +71,7 @@ class MapViewDirections extends Component {
 			destination = `${destination.latitude},${destination.longitude}`;
 		}
 
-		this.fetchRoute(origin, destination, apikey)
+		this.fetchRoute(origin, destination, waypoints, apikey)
 			.then(result => {
 				this.setState(result);
 				onReady && onReady(result);
@@ -81,11 +83,11 @@ class MapViewDirections extends Component {
 			});
 	}
 
-	fetchRoute = (origin, waypoints, apikey) => {
+	fetchRoute = (origin, destination, waypoints, apikey) => {
         // waypoints example : Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA
 		const mode = 'driving';
 		const url = `https://maps.googleapis.com/maps/api/directions/json?
-        origin=${origin}&destination=${origin}
+        origin=${origin}&destination=${destination}
         &waypoints=optimize:true|${waypoints}
         &key=${apikey}&mode=${mode}`;
 
@@ -124,11 +126,12 @@ class MapViewDirections extends Component {
 		}
 
 		const {
-			origin, // eslint-disable-line no-unused-vars
-			destination, // eslint-disable-line no-unused-vars
-			apikey, // eslint-disable-line no-unused-vars
-			onReady, // eslint-disable-line no-unused-vars
-			onError, // eslint-disable-line no-unused-vars
+			origin,
+			destination,
+			apikey,
+			onReady,
+            onError,
+            waypoints, 
 			...props
 		} = this.props;
 
