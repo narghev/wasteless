@@ -81,9 +81,13 @@ class MapViewDirections extends Component {
 			});
 	}
 
-	fetchRoute = (origin, destination, apikey) => {
+	fetchRoute = (origin, waypoints, apikey) => {
+        // waypoints example : Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA
 		const mode = 'driving';
-		const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${origin}&destination=${destination}&key=${apikey}&mode=${mode}`;
+		const url = `https://maps.googleapis.com/maps/api/directions/json?
+        origin=${origin}&destination=${origin}
+        &waypoints=optimize:true|${waypoints}
+        &key=${apikey}&mode=${mode}`;
 
 		return fetch(url)
 			.then(response => response.json())
