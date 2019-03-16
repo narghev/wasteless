@@ -14,6 +14,11 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 const GOOGLE_MAPS_APIKEY = "AIzaSyAEC5kJaCCnlSZfykAuRU9WfItNqVE6ieY";
 
+const truck_coordinate = {
+  latitude: LATITUDE,
+  longitude: LONGITUDE
+};
+
 class Map extends Component {
   constructor(props) {
     super(props);
@@ -69,6 +74,12 @@ class Map extends Component {
               />
             </MapView.Marker>
           ))}
+        <MapView.Marker key={`truck`} coordinate={truck_coordinate}>
+          <Image
+            source={require("../assets/truck.jpg")}
+            style={{ height: 20, width: 20 }}
+          />
+        </MapView.Marker>
         {coordinates !== [] && this.state.coordinates.length >= 2 && (
           <MapViewDirections
             origin={this.state.coordinates[0]}

@@ -23,13 +23,9 @@ const getBins = () => {
 
 const setBins = () => {
   coordinates.push({
-    id: 5,
-    location: {
-      latitude: 40.1830584,
-      longitude: 44.5265566
-    }
+    latitude: 40.1830584,
+    longitude: 44.5265566
   });
-  return { success: true };
 };
 
 module.exports = {
