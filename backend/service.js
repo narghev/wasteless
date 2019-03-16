@@ -1,19 +1,23 @@
 const coordinates = [
   {
-    latitude: 40.1917271,
-    longitude: 44.530983
+    latitude: 40.187952,
+    longitude: 44.515942
   },
   {
-    latitude: 40.1898835,
-    longitude: 44.525367
+    latitude: 40.1868762,
+    longitude: 44.5073297
   },
   {
-    latitude: 40.1895297,
-    longitude: 44.5250973
+    latitude: 40.1853397,
+    longitude: 44.5113229
   },
   {
-    latitude: 40.1850616,
-    longitude: 44.526116
+    latitude: 40.1770535,
+    longitude: 44.511532
+  },
+  {
+    latitude: 40.1764301,
+    longitude: 44.511826
   }
 ];
 

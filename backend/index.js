@@ -1,5 +1,5 @@
 const express = require("express");
-const service = require('./service');
+const service = require("./service");
 const app = express();
 
 app
