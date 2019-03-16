@@ -81,14 +81,22 @@ class MapViewDirections extends Component {
 				console.warn(`MapViewDirections Error: ${errorMessage}`); // eslint-disable-line no-console
 				onError && onError(errorMessage);
 			});
-	}
+    }
+    
+    coordsToWaypointsString = (coords) => {
+        // coords is array of objects
+        // [ {longitude: Number, latitude: Number}, {longitude: Number, latitude: Number}, ...]
+        coords.reduce((acc, currentCoord) => 
+        `${acc}|${currentCoord.longitude},${currentCoord.latitude}`, '')
+    }
 
 	fetchRoute = (origin, destination, waypoints, apikey) => {
         // waypoints example : Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA
+        const waypointsString = this.coordsToWaypointsString(waypoints);
 		const mode = 'driving';
 		const url = `https://maps.googleapis.com/maps/api/directions/json?
         origin=${origin}&destination=${destination}
-        &waypoints=optimize:true|${waypoints}
+        &waypoints=optimize:true${waypointsString}
         &key=${apikey}&mode=${mode}`;
 
 		return fetch(url)
