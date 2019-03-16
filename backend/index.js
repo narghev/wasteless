@@ -1,5 +1,5 @@
 const express = require("express");
-const service = require('./service');
+const service = require("./service");
 const app = express();
 
 app
@@ -10,5 +10,5 @@ app
     res.status(200).json(service.setBins());
   })
   .listen(1337, () => {
-    console.log("Example app listening on port 1337!");
+    console.log("Server listening on port 1337!");
   });

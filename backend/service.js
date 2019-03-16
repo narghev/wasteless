@@ -2,29 +2,29 @@ const coordinates = [
   {
     id: 1,
     location: {
-      latitude: 40.1917271,
-      longitude: 44.530983
+      latitude: 40.1815603,
+      longitude: 44.5259002
     }
   },
   {
     id: 2,
     location: {
-      latitude: 40.1898835,
-      longitude: 44.525367
+      latitude: 40.1832167,
+      longitude: 44.5257155
     }
   },
   {
     id: 3,
     location: {
-      latitude: 40.1895297,
-      longitude: 44.5250973
+      latitude: 40.1862017,
+      longitude: 44.5248199
     }
   },
   {
     id: 4,
     location: {
-      latitude: 40.1850616,
-      longitude: 44.526116
+      latitude: 40.1886291,
+      longitude: 44.5250986
     }
   }
 ];
