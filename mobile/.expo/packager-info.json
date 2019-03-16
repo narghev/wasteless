@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 30474,
-  "expoServerNgrokUrl": "https://mk-dvg.dactyl.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.mk-dvg.dactyl.mobile.exp.direct",
-  "ngrokPid": 30542
+  "packagerPid": 23054,
+  "expoServerNgrokUrl": "https://mk-dvg.adsellor.mobile.exp.direct",
+  "packagerNgrokUrl": "https://packager.mk-dvg.adsellor.mobile.exp.direct",
+  "ngrokPid": 23121,
+  "webpackServerPort": null
 }
