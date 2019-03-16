@@ -1,0 +1,6 @@
+Move around the garbage bins when we have the data.
+Fuel efficiency.
+Easier management.
+Better routes.
+Less polluted city.
+Data efficiency.
