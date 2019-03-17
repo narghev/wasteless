@@ -1,4 +1,4 @@
-const SERVICE_URL = "http://6c5f3b5d.ngrok.io";
+const SERVICE_URL = "https://3fcdc63a.ngrok.io";
 
 const getBins = () => {
   return fetch(`${SERVICE_URL}/bins`).then(res => res.json());

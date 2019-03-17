@@ -5,6 +5,8 @@ import MapViewDirections from "react-native-maps-directions";
 
 import registerPullService from "./registerPullService";
 
+const bin = require("../assets/bin.png");
+
 const { width, height } = Dimensions.get("window");
 const ASPECT_RATIO = width / height;
 const LATITUDE = 40.1917271;
@@ -17,6 +19,11 @@ const GOOGLE_MAPS_APIKEY = "AIzaSyAEC5kJaCCnlSZfykAuRU9WfItNqVE6ieY";
 const truck_coordinate = {
   latitude: LATITUDE,
   longitude: LONGITUDE
+};
+
+const saniteck_coordinate = {
+  latitude: 40.1446167,
+  longitude: 44.4546355
 };
 
 class Map extends Component {
@@ -45,12 +52,6 @@ class Map extends Component {
     this.setState({ region });
   };
 
-  onMapPress = e => {
-    this.setState({
-      coordinates: [...this.state.coordinates, e.nativeEvent.coordinate]
-    });
-  };
-
   render() {
     const { coordinates } = this.state;
     return (
@@ -63,15 +64,11 @@ class Map extends Component {
         }}
         style={StyleSheet.absoluteFill}
         ref={c => (this.mapView = c)}
-        onPress={this.onMapPress}
       >
         {coordinates !== [] &&
           coordinates.map((coordinate, index) => (
             <MapView.Marker key={`coordinate_${index}`} coordinate={coordinate}>
-              <Image
-                source={require("../assets/bin.png")}
-                style={{ height: 20, width: 20 }}
-              />
+              <Image source={bin} style={{ height: 20, width: 20 }} />
             </MapView.Marker>
           ))}
         <MapView.Marker key={`truck`} coordinate={truck_coordinate}>
@@ -82,19 +79,16 @@ class Map extends Component {
         </MapView.Marker>
         {coordinates !== [] && this.state.coordinates.length >= 2 && (
           <MapViewDirections
-            origin={this.state.coordinates[0]}
+            origin={truck_coordinate}
             waypoints={
               this.state.coordinates.length > 2
                 ? this.state.coordinates.slice(1, -1)
                 : null
             }
-            destination={
-              this.state.coordinates[this.state.coordinates.length - 1]
-            }
+            destination={saniteck_coordinate}
             apikey={GOOGLE_MAPS_APIKEY}
             strokeWidth={3}
             strokeColor="green"
-            optimizeWaypoints={true}
             onReady={result => {
               this.mapView.fitToCoordinates(result.coordinates, {
                 edgePadding: {
