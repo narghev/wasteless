@@ -1,47 +1,41 @@
 const coordinates = [
   {
-    id: 1,
-    location: {
-      latitude: 40.1815603,
-      longitude: 44.5259002
-    }
+    latitude: 40.187952,
+    longitude: 44.515942
   },
   {
-    id: 2,
-    location: {
-      latitude: 40.1832167,
-      longitude: 44.5257155
-    }
+    latitude: 40.1868762,
+    longitude: 44.5073297
   },
   {
-    id: 3,
-    location: {
-      latitude: 40.1862017,
-      longitude: 44.5248199
-    }
+    latitude: 40.1853397,
+    longitude: 44.5113229
   },
   {
-    id: 4,
-    location: {
-      latitude: 40.1886291,
-      longitude: 44.5250986
-    }
+    latitude: 40.1770535,
+    longitude: 44.511532
+  },
+  {
+    latitude: 40.1764301,
+    longitude: 44.511826
   }
 ];
+
+let isAdded = false;
 
 const getBins = () => {
   return coordinates;
 };
 
 const setBins = () => {
+  if (isAdded) {
+    return;
+  }
+  isAdded = true;
   coordinates.push({
-    id: 5,
-    location: {
-      latitude: 40.1830584,
-      longitude: 44.5265566
-    }
+    latitude: 40.1830584,
+    longitude: 44.5265566
   });
-  return { success: true };
 };
 
 module.exports = {
